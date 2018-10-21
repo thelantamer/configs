@@ -1,4 +1,4 @@
-# reference-configs
+# configs
 These are reference configurations that have been validated using IOSv images (VIRL images running on EVE-NG), unless otherwise indicated.
 
 Configurations serve as text references for:
