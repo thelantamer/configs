@@ -1,0 +1,28 @@
+feature netflow
+!
+flow exporter site_export1
+ destination 10.x.x.x
+ transport udp xxxx
+ source loopback0
+ version 9
+!
+flow exporter site_export2
+ destination 10.x.x.x
+ transport udp xxxx
+ source loopback0
+ version 9
+   template data timeout 30
+!
+flow monitor site_netflow
+ record netflow-original
+ exporter site_export1
+ exporter site_export2
+!
+interface Ethernett 7/9
+ description CircuitID blahblahblah (500mb)
+ bfd blahblahblah
+ ip flow monitor site_netflow input
+ ip flow monitor site_netflow output
+ ip address blahblahblah
+ no ip redirects
+ no shutdown
