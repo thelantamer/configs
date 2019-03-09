@@ -1,0 +1,17 @@
+monitor capture buffer GI01-CEF
+monitor capture buffer GI02-CEF
+monitor capture buffer PROCIN
+
+monitor capture buffer GI01-CEF filter access-list CEFTEST
+monitor capture buffer GI02-CEF filter access-list CEFTEST
+monitor capture buffer PROCIN filter access-list CEFTEST
+
+monitor capture point ip cef GI01-CEF gi0/1 in
+monitor capture point ip cef GI02-CEF gi0/2 in
+monitor capture point ip process-switched PROCIN in
+
+monitor capture point associate GI01-CEF GI01-CEF
+monitor capture point associate GI02-CEF GI02-CEF
+monitor capture point associate PROCIN PROCIN
+
+monitor capture point start all
